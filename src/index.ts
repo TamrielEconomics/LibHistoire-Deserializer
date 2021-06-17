@@ -1,3 +1,3 @@
-export const sayHi = () => {
-    console.log('Hi');
-};
+import { Deserialize } from './GuildHistoryCacheEntry';
+
+export { Deserialize };

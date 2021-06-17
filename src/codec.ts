@@ -1,3 +1,5 @@
+import { DecoderKeys } from './types';
+
 const dict = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const dictLen = dict.length;
 const fDict: string[] = [];
@@ -105,7 +107,7 @@ const StringToItemLink = (value: string) => {
     return fields.join(LINK_ORIGINAL_DATA_SEPARATOR) + ITEM_LINK_SUFFIX;
 };
 
-const decoders = {
+export const decoders = {
     string: (value: string | number | boolean) => {
         if (!value || value === '') return '';
         return value.toString() ?? '';
@@ -130,7 +132,6 @@ const decoders = {
     itemLink: StringToItemLink,
 };
 
-type DecoderKeys = keyof typeof decoders | 'dictionary';
 function DecodeValue(type: DecoderKeys, value: string) {
     if (type === 'dictionary') {
         return '@name';
@@ -143,9 +144,10 @@ function DecodeData(
     encodedString: string,
     format: { [key: string]: DecoderKeys[] },
     seperator: string,
-    dictionary: object
+    dictionary?: object
 ) {
-    let type: DecoderKeys[], version;
+    let type: DecoderKeys[],
+        version: number = -1;
     let data: string[] = [];
     seperator = seperator || DEFAULT_SEPERATOR;
     (encodedString + seperator).match(new RegExp(`([^${seperator}]+)(?=${seperator})`, 'g'))?.forEach((value) => {
@@ -158,5 +160,7 @@ function DecodeData(
             data.push(DecodeValue(type[data.length], value).toString());
         }
     });
-    return [data, version];
+    return { data, version };
 }
+
+export { DecodeData };
