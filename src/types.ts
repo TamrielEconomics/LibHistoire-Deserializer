@@ -2,6 +2,14 @@ import { decoders } from './codec';
 
 export type DecoderKeys = keyof typeof decoders | 'dictionary';
 
+export enum GuildHistoryCategories {
+    GUILD_HISTORY_GENERAL = 1,
+    GUILD_HISTORY_BANK = 2,
+    GUILD_HISTORY_STORE = 3,
+    GUILD_HISTORY_COMBAT = 4,
+    GUILD_HISTORY_ALLIANCE_WAR = 5,
+}
+
 export enum GuildEvents {
     GUILD_EVENT_GUILD_PROMOTE = 3,
     GUILD_EVENT_GUILD_DEMOTE = 4,
