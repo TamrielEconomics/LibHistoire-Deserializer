@@ -136,12 +136,10 @@ export function Deserialize(serializedData: string) {
     info[INDEX_EVENT_ID] = data[i] + idOffset;
     i++;
     const serializedParams = data[i];
-    console.log(serializedParams);
 
     const paramsFormat = PARAMS_FORMAT[version];
     const { data: params, version: eventType } = DecodeData(serializedParams, paramsFormat, PARAM_SEPARATOR, {});
     info[INDEX_EVENT_TYPE] = eventType;
-    console.log(params);
     for (let i = 1; i < params.length; i++) {
         info[INDEX_PARAM_1 + i - 1] = params[i];
     }
