@@ -10,7 +10,7 @@
   "scripts": {
     "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "prepublish": "npm run tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "yarn tsc && node ./test/__test__.js"
   },
   "author": "NicolasNewman",
   "homepage": "https://github.com/TamrielEconomics/LibHistoire-Deserializer",
