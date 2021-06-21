@@ -2,18 +2,15 @@
   "name": "lib-histoire-deserializer",
   "version": "1.0.0",
   "description": "A JS implementation of the deserializer used by LibHistoire",
-  "main": "dist/my-lib.cjs.js",
-  "module": "dist/my-lib.esm.js",
-  "browser": "dist/my-lib.umd.js",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
   "files": [
-    "dist"
+    "lib/"
   ],
   "scripts": {
-    "dev": "rollup -c -w",
-    "build": "rollup -c",
-    "build:types": "tsc -p ./tsconfig.json --outDir build --declaration true && api-extractor run",
-    "docs": "typedoc src --out docs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "prepublish": "npm run tsc",
+    "test": "yarn tsc && node ./test/__test__.js"
   },
   "author": "NicolasNewman",
   "homepage": "https://github.com/TamrielEconomics/LibHistoire-Deserializer",
@@ -25,21 +22,14 @@
   ],
   "license": "ISC",
   "devDependencies": {
-    "@microsoft/api-extractor": "^7.16.1",
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "@rollup/plugin-typescript": "^8.2.1",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
     "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.3.1",
-    "rollup": "^2.52.1",
     "ts-node": "^10.0.0",
     "tslib": "^2.3.0",
     "typescript": "^4.3.3"
   },
-  "dependencies": {
-    "typedoc": "^0.20.37"
-  }
+  "dependencies": {}
 }
