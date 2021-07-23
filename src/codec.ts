@@ -92,7 +92,7 @@ function StringToInteger(value: string) {
     for (let i = value.length - 1; i >= start; i--) {
         // indicies correct?
         const c = value.charCodeAt(i);
-        if (!rDict[c]) return 0;
+        if (rDict[c] === undefined) return 0;
         result = result + rDict[c] * Math.pow(dictLen, j);
         j++;
     }
@@ -153,12 +153,12 @@ const StringToItemLink = (value: string) => {
     }
 
     const expanded = value.replace(new RegExp(LINK_PLACEHOLDER_PATTERN, 'g'), ExpandPlaceholder);
-    let fields = [ITEM_LINK_PREFIX].concat(expanded.split(LINK_COMPACT_DATA_SEPARATOR));
+    let fields = [ITEM_LINK_PREFIX].concat(expanded.split(LINK_COMPACT_DATA_SEPARATOR).filter((s) => s !== ''));
     if (fields.length !== 22) {
         fields = FixOldEncoding(value, fields);
     }
 
-    for (let i = 2; i < fields.length; i++) {
+    for (let i = 1; i < fields.length; i++) {
         fields[i] = fastLookup[fields[i]]?.toString() || StringToInteger(fields[i]).toString();
     }
     return fields.join(LINK_ORIGINAL_DATA_SEPARATOR) + ITEM_LINK_SUFFIX;
