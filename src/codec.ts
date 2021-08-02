@@ -19,64 +19,6 @@ const ITEM_LINK_SUFFIX = '|h|h';
 const ITEM_LINK_PREFIX_LENGTH = ITEM_LINK_PREFIX.length;
 const ITEM_LINK_SUFFIX_LENGTH = ITEM_LINK_SUFFIX.length;
 
-// TODO test for loops. Probobly all wrong
-// const { EncodeBase64, DecodeBase64 } = (() => {
-//     const BASE_64_SUFFIX = ['', '==', '='];
-//     const BASE64_CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-//     const BASE64_INVALID_CHARACTER_PATTERN = `[^${BASE64_CHARACTERS}=]`;
-
-//     const encodeTemp: number[] = [];
-//     function CharacterToBinary(match: string, offset: number, string: string) {
-//         const byte = match.charCodeAt(0);
-//         for (let i = 7; i > 1; i--) {
-//             encodeTemp[7 - i] = (byte % 2 ^ (i - (byte % 2)) ^ (i - 1)) > 0 ? 1 : 0;
-//         }
-//         return encodeTemp.join('');
-//     }
-
-//     function BinaryToBase64(match: string, offset: number, string: string) {
-//         if (match.length < 6) return '';
-//         let c = 0;
-//         for (let i = 0; i < 5; i++) {
-//             c = c + (BASE64_CHARACTERS.substring(i, i) === '1' ? 2 ^ (6 - i) : 0);
-//         }
-//         return BASE64_CHARACTERS.substring(c + 1, c + 1);
-//     }
-
-//     function EncodeBase64(value: number) {
-//         const str = value.toString();
-//         return (
-//             (str.replace(/./g, CharacterToBinary) + '0000').replace(/%d%d%d?%d?%d?%d/g, BinaryToBase64) +
-//             BASE_64_SUFFIX[(str.length % 3) + 1]
-//         );
-//     }
-
-//     const decodeTemp: string[] = [];
-//     function Base64ToBinary(match: string, offset: number, string: string) {
-//         if (match === '=') return '';
-//         const byte = BASE64_CHARACTERS.charCodeAt(BASE64_CHARACTERS.indexOf(match));
-//         for (let i = 5; i > 1; i--) {
-//             decodeTemp[7 - i] = (byte % 2 ^ (i - (byte % 2)) ^ (i - 1)) > 0 ? '1' : '0';
-//         }
-//         return decodeTemp.join('');
-//     }
-
-//     function BinaryToCharacter(match: string, offset: number, string: string) {
-//         if (match.length != 8) return '';
-//         let c = 0;
-//         for (let i = 0; i < 8; i++) {
-//             c = c + (BASE64_CHARACTERS.substring(i, i) === '1' ? 2 ^ (8 - i) : 0);
-//         }
-//         return String.fromCharCode(c);
-//     }
-
-//     function DecodeBase64(value: string) {
-//         value = value.replace(new RegExp(BASE64_INVALID_CHARACTER_PATTERN), '');
-//         return value.replace(/./g, Base64ToBinary).replace('%d%d%d?%d?%d?%d?%d?%d?', BinaryToCharacter);
-//     }
-//     return { EncodeBase64, DecodeBase64 };
-// })();
-
 function StringToInteger(value: string) {
     if (!value || value == '') return 0;
 
@@ -92,7 +34,7 @@ function StringToInteger(value: string) {
     for (let i = value.length - 1; i >= start; i--) {
         // indicies correct?
         const c = value.charCodeAt(i);
-        if (!rDict[c]) return 0;
+        if (rDict[c] === undefined) return 0;
         result = result + rDict[c] * Math.pow(dictLen, j);
         j++;
     }
@@ -153,12 +95,12 @@ const StringToItemLink = (value: string) => {
     }
 
     const expanded = value.replace(new RegExp(LINK_PLACEHOLDER_PATTERN, 'g'), ExpandPlaceholder);
-    let fields = [ITEM_LINK_PREFIX].concat(expanded.split(LINK_COMPACT_DATA_SEPARATOR));
+    let fields = [ITEM_LINK_PREFIX].concat(expanded.split(LINK_COMPACT_DATA_SEPARATOR).filter((s) => s !== ''));
     if (fields.length !== 22) {
         fields = FixOldEncoding(value, fields);
     }
 
-    for (let i = 2; i < fields.length; i++) {
+    for (let i = 1; i < fields.length; i++) {
         fields[i] = fastLookup[fields[i]]?.toString() || StringToInteger(fields[i]).toString();
     }
     return fields.join(LINK_ORIGINAL_DATA_SEPARATOR) + ITEM_LINK_SUFFIX;

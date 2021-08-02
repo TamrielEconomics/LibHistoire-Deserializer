@@ -125,15 +125,13 @@ const PARAMS_FORMAT: { [key: string]: { [key: string]: DecoderKeys[] } } = {
 };
 
 export function Deserialize(serializedData: string) {
-    const idOffset = 0,
-        timeOffset = 0;
     const info = [];
 
     const { data, version } = DecodeData(serializedData, FIELD_FORMAT, FIELD_SEPARATOR); // version return 0 instead of 1, issue?
     let i = 1;
-    info[INDEX_EVENT_TIME] = data[i] + timeOffset;
+    info[INDEX_EVENT_TIME] = data[i];
     i++;
-    info[INDEX_EVENT_ID] = data[i] + idOffset;
+    info[INDEX_EVENT_ID] = data[i];
     i++;
     const serializedParams = data[i];
 
