@@ -31,6 +31,6 @@ export enum PotionEffect {
     Lower_Healing_Taken = 30,
 }
 
-export class Potion {
+export default class Potion {
     constructor() {}
 }

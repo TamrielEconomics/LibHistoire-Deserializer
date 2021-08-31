@@ -1,4 +1,4 @@
-import { Quality } from "./types";
+import { Quality } from './types';
 
 export enum WritType {
     ALCHEMY = 1,
@@ -98,7 +98,7 @@ export enum WritGearTypes {
 //     style: number;
 // }
 
-export class Writ {
+export default class Writ {
     private type: WritType | undefined;
 
     constructor(private id: number, private vouchers: number) {
@@ -202,7 +202,7 @@ export class Writ {
     private InRange(num: number, ...values: Array<number | number[]>): boolean {
         let inRange = false;
         values.forEach((val) => {
-            if (typeof val === "object") {
+            if (typeof val === 'object') {
                 if (num > val[0] && num < val[1]) {
                     inRange = true;
                 }
@@ -218,6 +218,6 @@ export class Writ {
     }
 
     GetType(): string {
-        return this.type?.toString() ?? "";
+        return this.type?.toString() ?? '';
     }
 }

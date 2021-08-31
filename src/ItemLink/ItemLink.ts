@@ -26,10 +26,10 @@
  * 21: Charges
  * 22: PotionEffect/WritReward (|h|h)
  */
-import { Item } from './Item';
-import { Potion } from './Potion';
+import Item from './Item';
+import Potion from './Potion';
 import { Level, LinkType, SubTypeMap } from './types';
-import { Writ } from './Writ';
+import Writ from './Writ';
 
 // interface Item {
 //     id: number;

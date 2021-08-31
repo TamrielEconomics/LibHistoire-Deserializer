@@ -1,47 +1,47 @@
-import { Level, Quality, VR } from "./types";
+import { Level, Quality, VR } from './types';
 
 export const ArmorTraits = [
-    "Divines",
-    "Invigorating",
-    "Impenetrable",
-    "Infused",
-    "Nirnhoned",
-    "Reinforced",
-    "Sturdy",
-    "Training",
-    "Well Fitted",
-    "Ornate",
-    "Intricate",
+    'Divines',
+    'Invigorating',
+    'Impenetrable',
+    'Infused',
+    'Nirnhoned',
+    'Reinforced',
+    'Sturdy',
+    'Training',
+    'Well Fitted',
+    'Ornate',
+    'Intricate',
 ];
 
 export const WeaponTraits = [
-    "Charged",
-    "Defending",
-    "Infused",
-    "Nirnhoned",
-    "Powered",
-    "Precise",
-    "Sharpened",
-    "Training",
-    "Decisive",
-    "Ornate",
-    "Intricate",
+    'Charged',
+    'Defending',
+    'Infused',
+    'Nirnhoned',
+    'Powered',
+    'Precise',
+    'Sharpened',
+    'Training',
+    'Decisive',
+    'Ornate',
+    'Intricate',
 ];
 
 export const JewelryTraits = [
-    "Bloodthirsty",
-    "Harmony",
-    "Healthy",
-    "Infused",
-    "Protective",
-    "Robust",
-    "Swift",
-    "Triune",
-    "Ornate",
-    "Intricate",
+    'Bloodthirsty',
+    'Harmony',
+    'Healthy',
+    'Infused',
+    'Protective',
+    'Robust',
+    'Swift',
+    'Triune',
+    'Ornate',
+    'Intricate',
 ];
 
-export class Item {
+export default class Item {
     constructor(
         private id: number,
         private enchantId: number,
