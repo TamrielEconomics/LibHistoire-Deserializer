@@ -1,0 +1,36 @@
+export enum PotionEffect {
+    Restore_Health = 1,
+    Ravage_Health = 2,
+    Restore_Magicka = 3,
+    Ravage_Magicka = 4,
+    Restore_Stamina = 5,
+    Ravage_Stamina = 6,
+    Spell_Resistance = 7,
+    Lower_Spell_Resistance = 8,
+    Increase_Armor = 9,
+    Lower_Armor = 10,
+    Increase_Spell_Power = 11,
+    Lower_Spell_Power = 12,
+    Increase_Weapon_Power = 13,
+    Lower_Weapon_Power = 14,
+    Spell_Critical = 15,
+    Lower_Spell_Critical = 16,
+    Weapon_Critical = 17,
+    Lower_Weapon_Critical = 18,
+    Unstoppable = 19,
+    Stun = 20,
+    Detection = 21,
+    Invisible = 22,
+    Speed = 23,
+    Reduce_Speed = 24,
+    Reduce_Damage_Taken = 25,
+    Increase_Damage_Taken = 26,
+    Sustained_Restore_Health = 27,
+    Gradual_Ravage_Health = 28,
+    Increase_Healing_Taken = 29,
+    Lower_Healing_Taken = 30,
+}
+
+export default class Potion {
+    constructor() {}
+}
