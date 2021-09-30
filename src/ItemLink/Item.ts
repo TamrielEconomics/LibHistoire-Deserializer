@@ -1,4 +1,4 @@
-import { Level, Quality, VR } from './types';
+import { Level, Quality, QualityColors, VR } from './types';
 
 export const ArmorTraits = [
     'Divines',
@@ -64,6 +64,10 @@ export default class Item {
 
     GetQuality() {
         return this.quality.toString();
+    }
+
+    GetQualityColor() {
+        return QualityColors[this.quality];
     }
 
     GetTrait() {
