@@ -1,6 +1,6 @@
 {
-  "name": "lib-histoire-deserializer",
-  "version": "0.1.4",
+  "name": "@tamrieleconomics/lib-histoire-deserializer",
+  "version": "1.1.0",
   "description": "A JS implementation of the deserializer used by LibHistoire",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
@@ -13,8 +13,8 @@
     "test": "yarn tsc && node ./test/__test__.js"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/TamrielEconomics/LibHistoire-Deserializer.git"
+    "type": "git",
+    "url": "https://github.com/TamrielEconomics/LibHistoire-Deserializer.git"
   },
   "author": "NicolasNewman",
   "homepage": "https://github.com/TamrielEconomics/LibHistoire-Deserializer",

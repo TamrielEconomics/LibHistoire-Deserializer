@@ -69,12 +69,4 @@ export default class Item {
     GetTrait() {
         return this.trait;
     }
-
-    // GetItemTypeOne() {
-    //     return this.itemtype1;
-    // }
-
-    // GetItemTypeTwo() {
-    //     return this.itemtype2;
-    // }
 }
