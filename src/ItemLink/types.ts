@@ -21,13 +21,22 @@ export enum VR {
 }
 
 export enum Quality {
-    TRASH = "Trash",
-    NORMAL = "Normal",
-    FINE = "Fine",
-    SUPERIOR = "Superior",
-    EPIC = "Epic",
-    LEGENDARY = "Legendary",
+    TRASH = 'Trash',
+    NORMAL = 'Normal',
+    FINE = 'Fine',
+    SUPERIOR = 'Superior',
+    EPIC = 'Epic',
+    LEGENDARY = 'Legendary',
 }
+
+export const QualityColors = {
+    [Quality.TRASH]: '#A6A6A6',
+    [Quality.NORMAL]: '#888',
+    [Quality.FINE]: '#2DC50E',
+    [Quality.SUPERIOR]: '#3A92FF',
+    [Quality.EPIC]: '#A02EF7',
+    [Quality.LEGENDARY]: 'CCAA1A',
+};
 
 export type TSubType = { level: VR; quality: Quality };
 export type TSubTypeMap = { [key: number]: TSubType };

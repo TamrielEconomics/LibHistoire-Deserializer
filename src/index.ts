@@ -3,7 +3,7 @@ import ItemLink from './ItemLink/ItemLink';
 import Item, { ArmorTraits, WeaponTraits, JewelryTraits } from './ItemLink/Item';
 import Potion from './ItemLink/Potion';
 import Writ, { WritType } from './ItemLink/Writ';
-import { Level, LinkType, SubTypeMap, Quality, VR } from './ItemLink/types';
+import { Level, LinkType, SubTypeMap, Quality, QualityColors, VR } from './ItemLink/types';
 
 export default Deserialize;
 export {
@@ -19,5 +19,6 @@ export {
     LinkType,
     SubTypeMap,
     Quality,
+    QualityColors,
     VR,
 };
