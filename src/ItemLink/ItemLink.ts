@@ -245,12 +245,19 @@ export default class ItemLink {
         link.split(':').reduce((prev, curr, i, arr) => {
             if (prev === curr && i < arr.length - 1) {
                 c++;
+            } else if (prev === curr) {
+                // the last value is the same as the previous
+                seg.push(`${arr[i - 1]}<${++c}>`);
             } else {
-                if (i === arr.length - 1) c++;
                 if (c > 2) {
+                    // if the repetition count is greater then 2, compress the value
                     seg.push(`${arr[i - 1]}<${c}>`);
                 } else {
                     seg.push(new Array(c).fill(arr[i - 1]));
+                }
+                if (i === arr.length - 1) {
+                    // we are at the last value, and it is different then the previous
+                    seg.push(new Array(1).fill(arr[i]));
                 }
                 c = 1;
             }
