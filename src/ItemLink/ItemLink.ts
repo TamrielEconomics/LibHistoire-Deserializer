@@ -215,7 +215,15 @@ export default class ItemLink {
             this.item = new Writ(this.rawData.id, this.rawData.potionEffectOrWritReward);
         } else if (this.rawData.potionEffectOrWritReward !== 0) {
             this.linkType = LinkType.POTION;
-            this.item = new Potion();
+            const subTypeInfo = SubTypeMap[this.rawData.subType];
+            this.item = new Potion(
+                this.rawData.id,
+                {
+                    level: this.rawData.internalLevel,
+                    vr: subTypeInfo.level,
+                } as Level,
+                this.rawData.potionEffectOrWritReward
+            );
         } else {
             this.linkType = LinkType.ITEM;
             const subTypeInfo = SubTypeMap[this.rawData.subType];
