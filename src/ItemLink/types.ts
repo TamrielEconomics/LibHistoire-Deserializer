@@ -35,7 +35,7 @@ export const QualityColors = {
     [Quality.FINE]: '#2DC50E',
     [Quality.SUPERIOR]: '#3A92FF',
     [Quality.EPIC]: '#A02EF7',
-    [Quality.LEGENDARY]: 'CCAA1A',
+    [Quality.LEGENDARY]: '#CCAA1A',
 };
 
 export type TSubType = { level: VR; quality: Quality };
