@@ -443,6 +443,10 @@ export const SubTypeMap: TSubTypeMap = {
     [398]: { level: VR.VR17, quality: Quality.NORMAL },
     [399]: { level: VR.VR17, quality: Quality.FINE },
     [400]: { level: VR.VR18, quality: Quality.FINE },
+    [428]: { level: VR.NOVR, quality: Quality.NORMAL },
+    [429]: { level: VR.NOVR, quality: Quality.FINE },
+    [430]: { level: VR.NOVR, quality: Quality.SUPERIOR },
+    [431]: { level: VR.NOVR, quality: Quality.EPIC },
 };
 
 export enum LinkType {
