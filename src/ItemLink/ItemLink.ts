@@ -26,6 +26,7 @@
  * 21: Charges
  * 22: PotionEffect/WritReward (|h|h)
  */
+import { ESOItem } from './ESOItem';
 import Item from './Item';
 import Potion from './Potion';
 import { Level, LinkType, SubTypeMap } from './types';
@@ -184,7 +185,7 @@ export default class ItemLink {
 
     linkType: LinkType;
 
-    item: Writ | Item | Potion;
+    item: ESOItem;
 
     constructor(private link: string, trait?: string) {
         this.link = link.replace('|H0:item:', '').replace('|h|h', '');

@@ -1,3 +1,4 @@
+import { ESOItemBase, ESOItemName } from './ESOItem';
 import { Quality } from './types';
 
 export enum WritType {
@@ -98,8 +99,9 @@ export enum WritGearTypes {
 //     style: number;
 // }
 
-export default class Writ {
+export default class Writ implements ESOItemBase {
     private type: WritType | undefined;
+    esoItemType: ESOItemName = 'Writ';
 
     constructor(private id: number, private vouchers: number) {
         if (this.InRange(id, 119696, [119698, 119705], [119818, 119820])) {

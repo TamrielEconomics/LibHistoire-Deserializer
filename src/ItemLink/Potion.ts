@@ -1,3 +1,4 @@
+import { ESOItemBase, ESOItemName } from './ESOItem';
 import { Level, VR } from './types';
 
 export const IdToPotionEffect = {
@@ -38,7 +39,9 @@ export const PotionEffects = Object.values(IdToPotionEffect);
 
 type ValidIds = keyof typeof IdToPotionEffect;
 
-export default class Potion {
+export default class Potion implements ESOItemBase {
+    esoItemType: ESOItemName = 'Potion';
+
     private effects: ValidIds[];
     constructor(private id: number, private level: Level, private potionEffect: number) {
         this.effects = [this.getEffectId(1), this.getEffectId(2), this.getEffectId(3)];

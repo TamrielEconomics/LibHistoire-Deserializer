@@ -1,4 +1,5 @@
 import { Level, Quality, QualityColors, VR } from './types';
+import { ESOItemBase, ESOItemName } from './ESOItem';
 
 export const ArmorTraits = [
     'Divines',
@@ -41,7 +42,9 @@ export const JewelryTraits = [
     'Intricate',
 ];
 
-export default class Item {
+export default class Item implements ESOItemBase {
+    esoItemType: ESOItemName = 'Item';
+
     constructor(
         private id: number,
         private enchantId: number,
