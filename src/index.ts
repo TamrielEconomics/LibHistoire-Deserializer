@@ -1,6 +1,6 @@
 import { Deserialize } from './GuildHistoryCacheEntry';
 import ItemLink from './ItemLink/ItemLink';
-import { ESOItem } from './ItemLink/ESOItem';
+import { ESOItem, IsItemType } from './ItemLink/ESOItem';
 import Item, { ArmorTraits, WeaponTraits, JewelryTraits } from './ItemLink/Item';
 import Potion, { PotionEffects } from './ItemLink/Potion';
 import Writ, { WritType } from './ItemLink/Writ';
@@ -10,6 +10,7 @@ export default Deserialize;
 export {
     ESOItem,
     ItemLink,
+    IsItemType,
     Item,
     ArmorTraits,
     WeaponTraits,

@@ -8,3 +8,10 @@ export type ESOItemName = 'Item' | 'Potion' | 'Writ';
 export interface ESOItemBase {
     esoItemType: ESOItemName;
 }
+const IsItemType = (item: any, type: ESOItemName): boolean => {
+    if (item.esoItemType) {
+        return item.esoItemType === type;
+    }
+    return false;
+};
+export { IsItemType };
