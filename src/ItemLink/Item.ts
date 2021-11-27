@@ -1,5 +1,6 @@
 import { Level, Quality, QualityColors, VR } from './types';
 import { ESOItemBase, ESOItemName } from './ESOItem';
+import { NonFunctionProperties } from '../types';
 
 export const ArmorTraits = [
     'Divines',
@@ -42,19 +43,23 @@ export const JewelryTraits = [
     'Intricate',
 ];
 
-export default class Item implements ESOItemBase {
+class _Item implements ESOItemBase {
     esoItemType: ESOItemName = 'Item';
 
     constructor(
-        private id: number,
-        private enchantId: number,
-        private level: Level,
-        private quality: Quality,
-        private style: number,
-        private crafted: boolean,
-        private charges: number,
-        private trait: string // private itemtype1: string, // private itemtype2: string
+        public id: number,
+        public enchantId: number,
+        public level: Level,
+        public quality: Quality,
+        public style: number,
+        public crafted: boolean,
+        public charges: number,
+        public trait: string // private itemtype1: string, // private itemtype2: string
     ) {}
+
+    // static FromObject(obj: ItemFields) {
+    //     return new Item(obj.id, obj.enchantId, obj.level, obj.quality, obj.style, obj.crafted, obj.charges, obj.trait);
+    // }
 
     GetLevel() {
         switch (this.level.vr) {
@@ -77,3 +82,19 @@ export default class Item implements ESOItemBase {
         return this.trait;
     }
 }
+export interface IItem
+    extends Omit<_Item, 'id' | 'enchantId' | 'level' | 'quality' | 'style' | 'crafted' | 'charges' | 'trait'> {}
+
+const Item: new (
+    id: number,
+    enchantId: number,
+    level: Level,
+    quality: Quality,
+    style: number,
+    crafted: boolean,
+    charges: number,
+    trait: string
+) => IItem = _Item;
+export default Item;
+
+export type ItemFields = NonFunctionProperties<_Item>;

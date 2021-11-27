@@ -1,3 +1,4 @@
+import { NonFunctionProperties } from '../types';
 import { ESOItemBase, ESOItemName } from './ESOItem';
 import { Level, VR } from './types';
 
@@ -39,11 +40,11 @@ export const PotionEffects = Object.values(IdToPotionEffect);
 
 type ValidIds = keyof typeof IdToPotionEffect;
 
-export default class Potion implements ESOItemBase {
+class _Potion implements ESOItemBase {
     esoItemType: ESOItemName = 'Potion';
+    effects: ValidIds[];
 
-    private effects: ValidIds[];
-    constructor(private id: number, private level: Level, private potionEffect: number) {
+    constructor(public id: number, public level: Level, public potionEffect: number) {
         this.effects = [this.getEffectId(1), this.getEffectId(2), this.getEffectId(3)];
     }
 
@@ -68,8 +69,9 @@ export default class Potion implements ESOItemBase {
         }
     }
 
-    private getEffectId(i: ValidIds) {
-        return Potion.getEffectId(this.potionEffect, i);
+    // private
+    getEffectId(i: ValidIds) {
+        return _Potion.getEffectId(this.potionEffect, i);
     }
 
     static getEffectId(potionEffect: number, i: number): ValidIds {
@@ -81,3 +83,10 @@ export default class Potion implements ESOItemBase {
         }
     }
 }
+
+export interface IPotion extends Omit<_Potion, 'id' | 'level' | 'potionEffect' | 'effects' | 'getEffectId'> {}
+
+const Potion: new (id: number, level: Level, potionEffect: number) => IPotion = _Potion;
+export default Potion;
+
+export type PotionFields = NonFunctionProperties<_Potion>;

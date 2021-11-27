@@ -1,3 +1,4 @@
+import { NonFunctionProperties } from '../types';
 import { ESOItemBase, ESOItemName } from './ESOItem';
 import { Quality } from './types';
 
@@ -99,11 +100,12 @@ export enum WritGearTypes {
 //     style: number;
 // }
 
-export default class Writ implements ESOItemBase {
-    private type: WritType | undefined;
+class _Writ implements ESOItemBase {
+    // private
+    type: WritType | undefined;
     esoItemType: ESOItemName = 'Writ';
 
-    constructor(private id: number, private vouchers: number) {
+    constructor(public id: number, public vouchers: number) {
         if (this.InRange(id, 119696, [119698, 119705], [119818, 119820])) {
             this.type = WritType.ALCHEMY;
             // const writ: AlchemyWrit = {
@@ -201,7 +203,8 @@ export default class Writ implements ESOItemBase {
         }
     }
 
-    private InRange(num: number, ...values: Array<number | number[]>): boolean {
+    // private
+    InRange(num: number, ...values: Array<number | number[]>): boolean {
         let inRange = false;
         values.forEach((val) => {
             if (typeof val === 'object') {
@@ -223,3 +226,10 @@ export default class Writ implements ESOItemBase {
         return this.type?.toString() ?? '';
     }
 }
+
+export interface IWrit extends Omit<_Writ, 'id' | 'vouchers' | 'type' | 'InRange'> {}
+
+const Writ: new (id: number, vouchers: number) => IWrit = _Writ;
+export default Writ;
+
+export type WritFields = NonFunctionProperties<_Writ>;
