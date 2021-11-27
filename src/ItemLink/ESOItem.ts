@@ -4,6 +4,7 @@ import Writ, { IWrit, WritFields } from './Writ';
 
 export type ESOItem = IItem | IPotion | IWrit;
 export type ESOItemName = 'Item' | 'Potion' | 'Writ';
+export type ESOItemFields = ItemFields | PotionFields | WritFields;
 
 export interface ESOItemBase {
     esoItemType: ESOItemName;
