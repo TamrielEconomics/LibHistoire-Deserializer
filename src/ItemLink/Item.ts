@@ -14,7 +14,7 @@ export const ArmorTraits = [
     'Well Fitted',
     'Ornate',
     'Intricate',
-];
+] as const;
 
 export const WeaponTraits = [
     'Charged',
@@ -28,7 +28,7 @@ export const WeaponTraits = [
     'Decisive',
     'Ornate',
     'Intricate',
-];
+] as const;
 
 export const JewelryTraits = [
     'Bloodthirsty',
@@ -41,7 +41,7 @@ export const JewelryTraits = [
     'Triune',
     'Ornate',
     'Intricate',
-];
+] as const;
 
 class _Item implements ESOItemBase {
     esoItemType: ESOItemName = 'Item';
