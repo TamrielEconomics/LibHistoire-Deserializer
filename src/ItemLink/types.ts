@@ -24,7 +24,7 @@ export enum Trait {
     STURDY = 'Sturdy',
     IMPENETRABLE = 'Impenetrable',
     REINFORCED = 'Reinforced',
-    WELL_FITTED = 'Well-fitted',
+    WELL_FITTED = 'Well Fitted',
     TRAINING = 'Training',
     INVIGORATING = 'Invigorating',
     DIVINES = 'Divines',
@@ -69,7 +69,7 @@ export const TraitColors = {
     // [Trait.TRAINING]: '#53404e',
     [Trait.DECISIVE]: '#cf9c83',
     [Trait.ORNATE]: '#e5c300',
-    [Trait.Intricate]: '#00bee5'
+    [Trait.Intricate]: '#00bee5',
 };
 
 export enum Quality {
