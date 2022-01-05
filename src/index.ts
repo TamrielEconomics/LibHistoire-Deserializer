@@ -4,7 +4,7 @@ import { ESOItem, ESOItemFields, GetEsoItemFromObject } from './ItemLink/ESOItem
 import Item, { IItem, ItemFields, ArmorTraits, WeaponTraits, JewelryTraits } from './ItemLink/Item';
 import Potion, { IPotion, PotionFields, PotionEffects, IdToPotionEffect } from './ItemLink/Potion';
 import Writ, { IWrit, WritFields, WritType } from './ItemLink/Writ';
-import { Level, LinkType, SubTypeMap, Quality, QualityColors, VR } from './ItemLink/types';
+import { Level, LinkType, SubTypeMap, Trait, TraitColors, Quality, QualityColors, VR } from './ItemLink/types';
 
 export default Deserialize;
 export {
@@ -30,6 +30,8 @@ export {
     Level,
     LinkType,
     SubTypeMap,
+    Trait,
+    TraitColors,
     Quality,
     QualityColors,
     VR,

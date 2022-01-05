@@ -20,6 +20,58 @@ export enum VR {
     VR18 = 68,
 }
 
+export enum Trait {
+    STURDY = 'Sturdy',
+    IMPENETRABLE = 'Impenetrable',
+    REINFORCED = 'Reinforced',
+    WELL_FITTED = 'Well-fitted',
+    TRAINING = 'Training',
+    INVIGORATING = 'Invigorating',
+    DIVINES = 'Divines',
+    HEALTHY = 'Healthy',
+    ARCANE = 'Arcane',
+    ROBUST = 'Robust',
+    BLOODTHIRSTY = 'Bloodthirsty',
+    HARMONY = 'Harmony',
+    TRIUNE = 'Triune',
+    PROTECTIVE = 'Protective',
+    POWERED = 'Powered',
+    CHARGED = 'Charged',
+    PRECISE = 'Precise',
+    INFUSED = 'Infused',
+    DEFENDING = 'Defending',
+    DECISIVE = 'Decisive',
+    ORNATE = 'Ornate',
+    Intricate = 'Intricate',
+}
+
+export const TraitColors = {
+    [Trait.STURDY]: '#506668',
+    [Trait.IMPENETRABLE]: '#4661a4',
+    [Trait.REINFORCED]: '#322931',
+    [Trait.WELL_FITTED]: '#5f1426',
+    [Trait.TRAINING]: '#334c06',
+    [Trait.INFUSED]: '#6f191b',
+    [Trait.INVIGORATING]: '#760e1f',
+    [Trait.DIVINES]: '#20316b',
+    [Trait.HEALTHY]: '#a82d50',
+    [Trait.ARCANE]: '#5c7ea2',
+    [Trait.ROBUST]: '#b2bba5',
+    [Trait.BLOODTHIRSTY]: '#5f1610',
+    [Trait.HARMONY]: '#3d3d3c',
+    [Trait.TRIUNE]: '#d99565',
+    [Trait.PROTECTIVE]: '#4b4952',
+    [Trait.POWERED]: '#4c591d',
+    [Trait.CHARGED]: '#982fa1',
+    [Trait.PRECISE]: '#b42926',
+    // [Trait.INFUSED]: '#346344',
+    [Trait.DEFENDING]: '#1c7788',
+    // [Trait.TRAINING]: '#53404e',
+    [Trait.DECISIVE]: '#cf9c83',
+    [Trait.ORNATE]: '#e5c300',
+    [Trait.Intricate]: '#00bee5'
+};
+
 export enum Quality {
     TRASH = 'Trash',
     NORMAL = 'Normal',
