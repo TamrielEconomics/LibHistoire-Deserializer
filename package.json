@@ -1,6 +1,6 @@
 {
   "name": "@tamrieleconomics/libhistoire-deserializer",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "author": "NicolasNewman",
   "description": "A JS implementation of the deserializer used by LibHistoire",
   "main": "./lib/cjs/index.js",
